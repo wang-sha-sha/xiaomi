@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>my小米账号 - 注册</title>
+		<link rel="shortcut icon" href="img/favicon.ico"/> 
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style type="text/css">
+			body{
+				background-color: #f9f9f9;
+			}
+			.logo-con{
+				width: 856px;
+				height: 550px;
+				background-color: white;
+				margin: 30px auto;	
+			}
+			.logo-con img{
+				margin: auto;
+				display: block;
+			}
+			.logo-con h3{
+				font-size: 30px;
+				text-align: center;
+				font-weight: normal;
+				margin: 45px 0 40px;
+			}
+			.logo-con p{
+				font-size: 14px;
+				margin-left: 260px;
+				margin-bottom: 10px;
+				margin-top: 10px;
+			}
+			.logo-con input{
+				width: 315px;
+				height: 40px;
+				padding-left: 15px;
+				margin: auto;
+				display: block;
+				border: 1px solid gray;
+				font-size: 14px;
+			}
+			.logo-con input:last-of-type{
+				width: 330px;
+				margin: 30px auto 78px;
+				background-color: #ff6700;
+				border: none;
+				font-size: 14px;
+				color: white;
+			}
+			.logo-con .note{
+				color: #9d9d9d;
+				padding-left: 40px;
+			}
+			.logo-con .note a{
+				color: black;
+				font-weight: bold;
+			}
+			
+			.footer{
+				height: 80px;
+				margin-top: 60px;
+			}
+			.footer .footer-con ul{
+				width: 260px;
+				height: 20px;
+				display: flex;
+				justify-content: space-evenly;
+				margin: auto;
+			}
+			.footer .footer-con{
+				font-size: 14px;
+				color: #75758b;
+			}
+			.footer .footer-con li a{
+				color: #75758b;
+			}
+			.footer .footer-con li:first-of-type a{
+				color: black;
+			}
+			.footer .footer-con li a:hover{
+				color: black;
+			}
+			
+			.footer .footer-con p{
+				text-align: center;
+				margin: 20px 0;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class='logo'>
+			<div class='logo-con'>
+				<img src="img/regImg/milogo.png">
+				<h3>注册小米账号</h3>
+				<form action="register.php" method="post">
+					<p>用户名</p>
+					<input type="text" name='userName'/>
+					<!-- <p>成功注册账号后，国家/地区将不能被修改</p> -->
+					<p>密码</p>
+					<!-- <a href='#'>+86</a> --> 
+					<input type="password" name='password'/>
+					<input type="submit" value="立即注册"/>
+				</form>
+				<p class='note'>已阅读并同意：小米 <a href='#'> 用户协议 </a>和<a href='#'> 隐私政策 </a> </p>
+			</div>
+		</div>
+		<div class='footer'>
+			<div class='footer-con'>
+				<ul>
+					<li><a href='#'>简体</a></li>
+					<li><span>|</span></li>
+					<li><a href='#'>繁体</a></li>
+					<li><span>|</span></li>
+					<li><a href='#'>English</a></li>
+					<li><span>|</span></li>
+					<li><a href='#'>常见问题</a></li>
+				</ul>
+				<p>小米公司版权所有-京ICP备10046444 <img src="img/loginImg/ghs.png">京公网安备11010802020134号-京ICP证110507号</p>
+				
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	let oPhoneNum = document.querySelector("#phoneNum");
+</script>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>my小米账号 - 登录</title>
+		<link rel="shortcut icon" href="img/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style type="text/css">
+			.logo {
+				padding: 10px 0;
+			}
+
+			.logo-con,
+			.footer-con {
+				width: 1130px;
+				margin: auto;
+			}
+
+			.logo-img {
+				background: url(img/loginImg/mistore_logo.png) no-repeat;
+				width: 200px;
+				height: 100px;
+				display: block;
+			}
+
+			.banner {
+				width: 100%;
+				height: 590px;
+				/* cursor: pointer; */
+				background: url(img/loginImg/banner.jpg) no-repeat top center;
+			}
+
+			.banner-con {
+				width: 1130px;
+				height: 100%;
+				margin: auto;
+			}
+
+			.login {
+				width: 420px;
+				height: 560px;
+				background-color: white;
+				float: right;
+				margin-top: 28px;
+			}
+
+			.banner-con .login .login-top {
+				display: flex;
+				justify-content: space-evenly;
+				font-size: 26px;
+				margin: 30px 0;
+				color: #666666;
+			}
+
+			.banner-con .login .login-top a {
+				color: #666666;
+			}
+
+			.banner-con .login .login-top a:first-of-type,
+			.banner-con .login .login-top a:hover,
+			form p:nth-of-type(2) a:hover {
+				color: #ff6700;
+			}
+
+			form {
+				text-align: center;
+			}
+
+			form input {
+				width: 335px;
+				/* width: 300px; */
+				height: 50px;
+				margin-bottom: 12px;
+				padding-left: 15px;
+				border: 1px solid #e0e0e0;
+			}
+
+			form input:last-of-type {
+				width: 350px;
+				background-color: #ff6700;
+				color: white;
+				margin-top: 15px;
+			}
+
+			form p:first-of-type a {
+				color: #ff6700;
+				font-size: 14px;
+
+			}
+
+			form p:nth-of-type(2) {
+				color: #999999;
+				margin-top: 40px;
+			}
+
+			form p:nth-of-type(2) a {
+				color: #999999;
+			}
+
+			.banner-con .login .icon {
+				/* width: 100%; */
+				height: 30px;
+				margin-top: 130px;
+				display: flex;
+				justify-content: space-evenly;
+				padding: 0 50px;
+			}
+
+			.banner-con .login .icon a {
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				text-align: center;
+				line-height: 33px;
+			}
+
+			.banner-con .login .icon a i {
+				width: 20px;
+				height: 18px;
+				display: inline-block;
+			}
+
+			.banner-con .login .icon .qq {
+				background-color: #0288d1;
+			}
+
+			.banner-con .login .icon .qq>i {
+				background: url(img/loginImg/icons_type.png) no-repeat -18px 0;
+			}
+
+			.banner-con .login .icon .weibo {
+				background-color: #d32f2f;
+			}
+
+			.banner-con .login .icon .weibo>i {
+				background: url(img/loginImg/icons_type.png) no-repeat -37px 0;
+			}
+
+			.banner-con .login .icon .ailpay {
+				background-color: #0ae;
+			}
+
+			.banner-con .login .icon .ailpay>i {
+				background: url(img/loginImg/icons_type.png) no-repeat -56px 0;
+				width: 24px;
+			}
+
+			.banner-con .login .icon .wechat {
+				background-color: #00d20d;
+			}
+
+			.banner-con .login .icon .wechat>i {
+				background: url(img/loginImg/icons_type.png) no-repeat -84px 0;
+				width: 24px;
+			}
+
+			.footer {
+				height: 80px;
+				margin-top: 100px;
+			}
+
+			.footer .footer-con ul {
+				width: 300px;
+				height: 20px;
+				display: flex;
+				justify-content: space-evenly;
+				margin: auto;
+			}
+
+			.footer .footer-con {
+				font-size: 14px;
+				color: #75758b;
+			}
+
+			.footer .footer-con li a {
+				color: #75758b;
+			}
+
+			.footer .footer-con li:first-of-type a {
+				color: black;
+			}
+
+			.footer .footer-con li a:hover {
+				color: black;
+			}
+
+			.footer .footer-con p {
+				text-align: center;
+				margin: 20px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class='logo'>
+			<div class='logo-con'>
+				<a class='logo-img' href='homePage.html'></a>
+			</div>
+		</div>
+		<div class='banner'>
+			<!-- <a href='#'></a> -->
+			<div class='banner-con'>
+				<div class='login'>
+					<div class='login-top'>
+						<a href='#'>账号登录</a>
+						<span>|</span>
+						<a href='#'>扫码登录</a>
+					</div>
+					<form method="">
+						<input type="text" placeholder="手机号码" name='userName' id='phoneNum' /><span></span><br>
+						<input type="password" placeholder="密码" name='password' id='pwd' /><span></span><br>
+						<!-- <div><span id='error-note'></span></div> -->
+						<div id='error-note'></div>
+						<input type="submit" value="登录" id='loginId'/><br>
+						<p><a href='#'>手机短信登录/注册</a></p>
+						<p>
+							<a href='register.html'>立即注册</a>
+							<span>|</span>
+							<a href='#'>忘记密码?</a>
+						</p>
+					</form>
+					<div class='icon'>
+						<a href='#' class='qq'><i></i></a>
+						<a href='#' class='weibo'><i></i></a>
+						<a href='#' class='ailpay'><i></i></a>
+						<a href='#' class='wechat'><i></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class='footer'>
+			<div class='footer-con'>
+				<ul>
+					<li><a href='#'>简体</a></li>
+					<li><span>|</span></li>
+					<li><a href='#'>繁体</a></li>
+					<li><span>|</span></li>
+					<li><a href='#'>English</a></li>
+					<li><span>|</span></li>
+					<li><a href='#'>常见问题</a></li>
+					<li><span>|</span></li>
+					<li><a href='#'>隐私政策</a></li>
+				</ul>
+				<p>小米公司版权所有-京ICP备10046444 <img src="img/loginImg/ghs.png">京公网安备11010802020134号-京ICP证110507号</p>
+			</div>
+		</div>
+
+	</body>
+</html>
+<script type="text/javascript">
+	// form表单的submit事件
+	let oF = document.querySelector("form");
+	console.log('0: ' + new Date());
+	oF.onsubmit = function(evt) {
+		console.log('1: ' + new Date());
+		let e = evt||event;
+		let oPhoneNum = document.querySelector("#phoneNum");
+		let oPwd = document.querySelector("#pwd");
+		// ajax请求
+		let xhr;
+		if (window.ActiveObject) {
+			//ie
+			xhr = new ActiveXObject("Microsoft.XMLHttp");
+		} else {
+			//非ie
+			xhr = new XMLHttpRequest();
+		}
+		xhr.open('post', 'login.php', true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send("userName=" + oPhoneNum.value + "&password=" + oPwd.value);
+		xhr.onreadystatechange = function() {
+			if (xhr.status == 200 && xhr.readyState == 4) {
+				fun(xhr.responseText);
+				console.log('2: ' + new Date());
+			}
+		}
+		e.preventDefault?e.preventDefault():e.returnValue=false;
+	}
+	
+	function fun(resText){
+		let oSpan = document.querySelector("#error-note");
+		if(resText=='失败'){
+			oSpan.innerHTML = "!用户名或密码不正确";
+			// oSpan.style.color = '#ff6700';
+			oSpan.style.color = 'red';
+			oSpan.style.paddingLeft = '50px';
+		}else{
+			location.href="homePage.html?userName="+resText; 
+			
+		}
+	}
+</script>

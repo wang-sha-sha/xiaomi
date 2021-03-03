@@ -1,0 +1,891 @@
+/* 版心 1534*/
+.top-con,
+.header-con,
+.banner-con,
+.columns4-con,
+.xiaomi-con,
+.note9-con,
+.phone-con,
+.TV-con,
+.home-electrical-con,
+.door-con,
+.intelligence-con,
+.cup-con,
+.collocation-con,
+.life-con,
+.parts-con,
+.star-life-con,
+.around-con,
+.pen-con,
+.vedio-con,
+.footer-con{
+	width: 1226px;
+	margin: auto;
+}
+
+.top {
+	background-color: #333333;
+}
+
+.top-con {
+	height: 50px;
+	line-height: 50px;
+	font-size: 12px;
+}
+
+.top-con a {
+	color: #b0b0b0;
+}
+.top-con a:hover {
+	color: white;
+}
+
+.top-con span {
+	color: #424242;
+	margin: 0 3px;
+}
+
+.top-con .top-nav {
+	/* 左浮动 */
+	float: left;
+}
+
+.top-con .top-info {
+	float: right;
+}
+
+.top-con .top-shopping-car {
+	float: right;
+	width: 120px;
+	height: 40px;
+	margin-left: 15px;
+}
+
+.top-con .top-shopping-car .shoppingCarNum {
+	color: #b0b0b0;
+}
+
+.header-con {
+	height: 100px;
+}
+
+.header-con .header-logo {
+	width: 49px;
+	height: 49px;
+	padding-top: 20px;
+	float: left;
+	position: relative;
+	overflow: hidden;
+}
+
+.header-con .header-logo img:first-child {
+	left: 0px;
+}
+
+.header-con .header-logo img:last-child {
+	left: -49px;
+}
+
+.header-con .header-logo img:first-child,
+.header-con .header-logo img:last-child {
+	position: absolute;
+	top: 20px;
+	background-color: #ff6700;
+	/* 过渡 */
+	transition: all 0.3s;
+}
+
+.header-con .header-logo:hover img:first-child {
+	left: 49px;
+}
+
+.header-con .header-logo:hover img:last-child {
+	left: 0px;
+}
+
+.header-con .header-nav {
+	font-size: 14px;
+}
+
+.header-con .header-nav li {
+	float: left;
+}
+.header-con .header-nav li a:hover{
+	color: #ec5a00;
+}
+
+.header-con .header-nav .main-menu {
+	float: left;
+	margin-left: 130px;
+	margin-top: 38px;
+}
+
+.header-con .header-nav .main-menu>li {
+	float: left;
+	width: 80px;
+	/* border: 1px solid red; */
+	text-align: center;
+	cursor: pointer;
+}
+
+.header-con .header-nav .main-menu>li:hover .submenu {
+	display: block;
+}
+
+.header-con .header-nav .main-menu .submenu {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 200px;
+	background-color: white;
+	margin-top: 43px;
+	display: none;
+	/* 过渡要加给谁 */
+	/* transition: all 2s 1s ease; */
+	z-index: 999;
+	padding-left: 100px;
+	border-top: 1px solid #d6d6d6;
+
+}
+
+.header-con .header-nav .main-menu .submenu>li {
+	width: 180px;
+	height: 150px;
+	margin-top: 20px;
+	border-right: 1px solid #d6d6d6;
+}
+
+.header-con .header-nav .main-menu .submenu>li:last-child {
+	border: none;
+}
+
+.header-con .header-nav .main-menu .submenu>li img {
+	width: 100px;
+	height: 100px;
+	/* background-color: #EC5A00; */
+}
+
+.header-con .header-nav .main-menu .submenu>li p {
+	font-size: 10px;
+	margin: 8px 0;
+}
+
+.header-con .header-nav .main-menu .submenu>li p:last-child {
+	color: red;
+}
+
+.header-con .header-search {
+	padding-top: 25px;
+}
+
+.header-con .header-search input {
+	width: 241px;
+	height: 50px;
+	margin-left: 15px;
+	/* border: 1px solid red; 继续*/
+	border-right: none;
+}
+
+.header-con .header-search a {
+	width: 50px;
+	height: 50px;
+	display: block;
+	float: right;
+	/* border: 1px solid red;  继续 */
+}
+
+
+.banner {
+	height: 460px;
+}
+
+.banner .banner-con {
+	height: 460px;
+	background-color: #CCCCCC
+}
+
+.banner .banner-con .banner-list {
+	width: 234px;
+	height: 440px;
+	background-color: #5d5e61;
+	padding-top: 20px;
+	float: left;
+}
+
+.banner .banner-con .banner-list li {
+	height: 43px;
+	font-size: 14px;
+	line-height: 40px;
+}
+
+.banner .banner-con .banner-list li a {
+	padding-left: 30px;
+	position: relative;
+	color: white;
+}
+
+.banner .banner-con .banner-list li a span {
+	position: absolute;
+	left: 190px;
+	top: -10px;
+	font-size: 18px;
+}
+
+.banner .banner-con .banner-list li:hover {
+	background-color: #ec5a00;
+}
+
+.banner .banner-con .banner-img {
+	width: 990px;
+	height: 460px;
+	position: relative;
+	/* background: url(../img/banner0.webp) no-repeat; */
+	/* background-size: 990px 460px; */
+	margin-left: 234px;
+}
+/*改进*/
+.imgDiv{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.imgDiv img{
+	width: 990px;
+	height: 460px;
+}
+
+.banner-con .banner-img .dot{
+	height: 20px;
+	display: block;
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	line-height: 20px;
+}
+.banner-img .dot span{
+	display: block;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	margin: 10px 5px;
+	float: left;
+}
+
+#btnPrev, #btnNext{
+	width: 41px;
+	height: 69px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+#btnPrev{
+	background: url(../img/icon-slides.png) no-repeat -84px center;
+	left: 0;
+}
+#btnPrev:hover{
+	background: url(../img/icon-slides.png) no-repeat 0px center;
+	cursor: pointer;
+}
+#btnNext{
+	background: url(../img/icon-slides.png) no-repeat -125px center;
+	right: 0;
+}
+#btnNext:hover{
+	background: url(../img/icon-slides.png) no-repeat -42px center;
+	cursor: pointer;
+}
+
+
+/* 小米秒杀 */
+.columns4 {
+	height: 168px;
+	margin: 14px 0 25px;
+	/* background-color: #404144; */
+}
+
+.columns4 .columns4-con {
+	/* background-color: #B0B0B0; */
+	display: flex;
+	justify-content: space-between;
+}
+
+.columns4 .columns4-con ul {
+	width: 232px;
+	height: 168px;
+	background-color: #5f5750;
+	/* justify-content: space-evenly; */
+	font-size: 12px;
+
+}
+
+.columns4 .columns4-con ul li {
+	float: left;
+	width: 33%;
+	height: 76px;
+	text-align: center;
+	padding-top: 8px;
+}
+
+.columns4 .columns4-con ul li:nth-child(1),
+.columns4 .columns4-con ul li:nth-child(2),
+.columns4 .columns4-con ul li:nth-child(3) {
+	border-bottom: 1px solid #6d6d6d;
+}
+
+.columns4 .columns4-con ul li:nth-child(2),
+.columns4 .columns4-con ul li:nth-child(5) {
+	border-left: 1px solid #6d6d6d;
+	border-right: 1px solid #6d6d6d;
+}
+
+.columns4 .columns4-con ul li p {
+	color: #cfccca;
+}
+
+.columns4 .columns4-con div img {
+	width: 316px;
+	height: 168px;
+	background-color: pink;
+}
+
+.xiaomi {
+	height: 396px;
+	background-color: #f5f5f5;
+}
+
+.xiaomi .xiaomi-con {
+	height: 396px;
+}
+
+.xiaomi .xiaomi-con h4 {
+	height: 60px;
+	line-height: 60px;
+	font-weight: normal;
+	font-size: 22px;
+	color: #333333;
+}
+
+/* .xiaomi .xiaomi-con>a {
+	position: relative;
+	left: 1130px;
+	top: -10px;
+	width: 40px;
+	height: 28px;
+	display: inline-block;
+	border: 1px solid gray;
+	text-align: center;
+} */
+
+.xiaomi .xiaomi-con ul {
+	height: 342px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.xiaomi .xiaomi-con li {
+	width: 18%;
+	height: 335px;
+	/* 继承 */
+	text-align: center;
+}
+
+
+.xiaomi .xiaomi-con li:first-of-type {
+	background-color: #f1eded;
+	border-top: 1px solid red;
+
+}
+
+.xiaomi .xiaomi-con li:first-of-type p:first-of-type {
+	font-size: 20px;
+	color: red;
+	margin-top: 60px;
+	margin-bottom: 30px;
+}
+
+.xiaomi .xiaomi-con li p:last-of-type {
+	font-size: 14px;
+	margin: 30px 0;
+}
+
+.xiaomi .xiaomi-con li div span {
+	width: 46px;
+	height: 46px;
+	display: inline-block;
+	background-color: #333333;
+	color: white;
+	font-size: 18px;
+	line-height: 46px;
+}
+
+.xiaomi .xiaomi-con .auto {
+	background-color: white;
+}
+
+.xiaomi .xiaomi-con ul .auto img {
+	margin: 20px 0;
+}
+
+.xiaomi .xiaomi-con ul .auto p {
+	font-size: 12px;
+	color: #adadad;
+}
+
+.xiaomi .xiaomi-con ul .auto p:first-of-type {
+	font-size: 14px;
+	color: #202020;
+}
+
+.xiaomi .xiaomi-con ul .auto p:nth-of-type(2) {
+	margin: 10px 0 20px;
+}
+
+.xiaomi .xiaomi-con ul .auto span {
+	text-decoration: line-through;
+}
+
+.xiaomi .xiaomi-con ul .auto b {
+	color: #fa6509;
+}
+
+.note9,
+.TV,
+.door,
+.cup,
+.pen{
+	background-color: #f5f5f5;
+}
+
+.note9 .note9-con img,
+.TV .TV-con img,
+.door .door-con img,
+.cup .cup-con img,
+.life .life-con img,
+.star-life .star-life-con img,
+.pen .pen-con img{
+	width: 100%;
+	height: 120px;
+	margin: 20px 0;
+}
+
+.phone {
+	background-color: #f5f5f5;
+	height: 672px;
+}
+
+.phone .phone-con>div {
+	display: flex;
+	justify-content: space-between;
+}
+
+.phone .phone-con h4,
+.home-electrical .home-electrical-con h4,
+.intelligence .intelligence-con h4,
+.collocation .collocation-con h4,
+.parts .parts-con h4,
+.around .around-con h4,
+.vedio .vedio-con h4{
+	height: 60px;
+	line-height: 60px;
+	font-weight: normal;
+	font-size: 22px;
+	color: #333333;
+}
+
+.phone .phone-con div>a img {
+	width: 234px;
+	height: 612px;
+}
+
+.phone .phone-con ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: stretch;
+	margin-left: 20px;
+	text-align: center;
+}
+
+.phone .phone-con ul li {
+	width: 232px;
+	background-color: white;
+}
+
+.phone .phone-con ul li:nth-of-type(1),
+.phone .phone-con ul li:nth-of-type(2),
+.phone .phone-con ul li:nth-of-type(3),
+.phone .phone-con ul li:nth-of-type(4) {
+	margin-bottom: 15px;
+}
+
+.phone .phone-con ul li a p {
+	font-size: 12px;
+}
+
+.phone .phone-con ul li a img {
+	margin: 20px 0;
+}
+
+.phone .phone-con ul li a p:nth-of-type(2) {
+	color: #b0b0b0;
+	margin: 12px 0 16px;
+}
+
+.phone .phone-con ul li a p:nth-of-type(3) {
+	color: #ff6700;
+}
+.vedio{
+	padding-bottom: 20px;
+}
+
+.vedio .vedio-con ul{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 286px;
+}
+.vedio .vedio-con ul li{
+	width: 24%;
+	/* border: 1px solid red; */
+	background-color: white;
+	
+}
+.vedio .vedio-con ul li img{
+	width: 100%;
+	height: 180px;	
+}
+.vedio .vedio-con ul li p{
+	margin-top: 30px;
+	text-align: center;
+}
+
+/* footer */
+.footer .footer-con>ul{
+	display: flex;
+	justify-content: space-evenly;
+	color: #616161;
+	padding: 25px 0;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.footer .footer-con ul li a{
+	color: #616161;
+}
+.footer .footer-con ul li span{
+	color: #e0e0e0;
+}
+.footer .footer-con .footer-list{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 25px;
+}
+.footer .footer-con .footer-list ul{
+	width: 80px;
+}
+.footer .footer-con .footer-list ul li{
+	margin-bottom: 20px;
+	font-size: 12px;
+}
+.footer .footer-con .footer-list ul li:first-of-type{
+	margin-bottom: 30px;
+	font-size: 14px;
+}
+.footer .footer-con .footer-list ul li a{
+	color:  #616161;
+}
+	
+.footer .footer-con .footer-list .contact{
+	width: 245px;
+	height: 150px;
+	text-align: center;
+	border-left: 1px solid #e0e0e0;
+	padding-top: 20px;
+}
+
+.footer .footer-con .footer-list .contact p{
+	margin: 10px 0;
+	font-size: 12px;
+}
+.footer .footer-con .footer-list .contact p:first-of-type{
+	color: #ff6900;
+	font-size: 16px;
+}
+.footer .footer-con .footer-list .contact>a{
+	width: 120px;
+	height: 30px;
+	display: block;
+	border: 1px solid #ff6900;
+	color: #ff6900;
+	font-size: 12px;
+	line-height: 30px;
+	text-align: center;
+	margin-left: 65px;
+}
+.footer .footer-con .footer-list .contact p{
+	text-align: center;
+}
+.footer .footer-con .footer-list .contact p img{
+	width: 24px;
+	height: 24px;
+}
+.footer .footer-con ul li a:hover,
+.footer .footer-con .footer-list ul li a:hover{
+	color: #ff6900;
+}
+
+
+
+/* 重复 */
+.home-electrical,
+.intelligence,
+.collocation,
+.life,
+.parts,
+.star-life,
+.around,
+.vedio{
+	background-color: #f5f5f5;
+}
+
+.home-electrical .home-electrical-con ul,
+.intelligence .intelligence-con ul,
+.collocation .collocation-con ul,
+.parts .parts-con ul,
+.around .around-con ul {
+	height: 612px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-content: space-between;
+	text-align: center;
+}
+
+.home-electrical .home-electrical-con ul li,
+.intelligence .intelligence-con ul li,
+.collocation .collocation-con ul li,
+.parts .parts-con ul li,
+.around .around-con ul li {
+	width: 236px;
+	height: 300px;
+	background-color: white;
+}
+
+.home-electrical .home-electrical-con ul li:nth-of-type(1) img,
+.home-electrical .home-electrical-con ul li:nth-of-type(6) img,
+.intelligence .intelligence-con ul li:nth-of-type(1) img,
+.intelligence .intelligence-con ul li:nth-of-type(6) img,
+.collocation .collocation-con ul li:nth-of-type(1) img,
+.collocation .collocation-con ul li:nth-of-type(6) img,
+.parts .parts-con ul li:nth-of-type(1) img,
+.parts .parts-con ul li:nth-of-type(6) img,
+.around .around-con ul li:nth-of-type(1) img,
+.around .around-con ul li:nth-of-type(6) img {
+	width: 236px;
+	height: 300px;
+}
+
+.home-electrical .home-electrical-con ul li a p,
+.intelligence .intelligence-con ul li a p,
+.collocation .collocation-con ul li a p,
+.parts .parts-con ul li a p,
+.around .around-con ul li a p {
+	font-size: 12px;
+	color: black;
+}
+
+.home-electrical .home-electrical-con ul li a p:nth-of-type(2),
+.intelligence .intelligence-con ul li a p:nth-of-type(2),
+.collocation .collocation-con ul li a p:nth-of-type(2),
+.parts .parts-con ul li a p:nth-of-type(2),
+.around .around-con ul li a p:nth-of-type(2) {
+	color: #b0b0b0;
+	margin: 12px 0 16px;
+}
+
+.home-electrical .home-electrical-con li a p:nth-of-type(3) span:last-of-type,
+.intelligence .intelligence-con li a p:nth-of-type(3) span:last-of-type,
+.collocation .collocation-con li a p:nth-of-type(3) span:last-of-type,
+.parts .parts-con li a p:nth-of-type(3) span:last-of-type,
+.around .around-con li a p:nth-of-type(3) span:last-of-type {
+	color: #b0b0b0;
+	text-decoration: line-through;
+}
+
+.home-electrical .home-electrical-con ul li a p:nth-of-type(3),
+.intelligence .intelligence-con ul li a p:nth-of-type(3),
+.collocation .collocation-con ul li a p:nth-of-type(3),
+.parts .parts-con ul li a p:nth-of-type(3),
+.around .around-con ul li a p:nth-of-type(3) {
+	color: #ff6700;
+}
+
+.home-electrical .home-electrical-con ul li:last-child,
+.intelligence .intelligence-con ul li:last-child,
+.collocation .collocation-con ul li:last-child,
+.parts .parts-con ul li:last-child,
+.around .around-con ul li:last-child {
+	background-color: #f5f5f5;
+}
+
+.home-electrical .home-electrical-con ul li:last-child a,
+.intelligence .intelligence-con ul li:last-child a,
+.collocation .collocation-con ul li:last-child a,
+.parts .parts-con ul li:last-child a,
+.around .around-con ul li:last-child a {
+	height: 140px;
+	display: block;
+	background-color: white;
+}
+
+.home-electrical .home-electrical-con ul li:last-child a:first-child,
+.intelligence .intelligence-con ul li:last-child a:first-child,
+.collocation .collocation-con ul li:last-child a:first-child,
+.parts .parts-con ul li:last-child a:first-child,
+.around .around-con ul li:last-child a:first-child {
+	margin-bottom: 20px;
+}
+
+.home-electrical .home-electrical-con ul li:last-child a img,
+.intelligence .intelligence-con ul li:last-child a img,
+.collocation .collocation-con ul li:last-child a img,
+.parts .parts-con ul li:last-child a img,
+.around .around-con ul li:last-child a img {
+	float: right;
+	margin-top: 10px;
+}
+
+.home-electrical .home-electrical-con ul li:last-child a span,
+.intelligence .intelligence-con ul li:last-child a span,
+.collocation .collocation-con ul li:last-child a span,
+.parts .parts-con ul li:last-child a span,
+.around .around-con ul li:last-child a span {
+	clear: both;
+	display: block;
+	text-indent: -120px;
+	color: #ff6700;
+	font-size: 12px;
+}
+
+.home-electrical .home-electrical-con ul li:last-child a p:first-child,
+.intelligence .intelligence-con ul li:last-child a p:first-child,
+.collocation .collocation-con ul li:last-child a p:first-child,
+.parts .parts-con ul li:last-child a p:first-child,
+.around .around-con ul li:last-child a p:first-child {
+	text-align: justify;
+	float: left;
+	width: 80px;
+	height: 50px;
+	margin: 30px 0 0 40px;
+	line-height: 20px;
+}
+
+.home-electrical-con ul li:last-child a:last-child p,
+.intelligence-con ul li:last-child a:last-child p,
+.collocation-con ul li:last-child a:last-child p,
+.parts-con ul li:last-child a:last-child p,
+.around-con ul li:last-child a:last-child p {
+	font-size: 18px;
+	position: relative;
+	padding-top: 20px;
+}
+
+.home-electrical-con ul li:last-child a:last-child p small,
+.intelligence-con ul li:last-child a:last-child p small,
+.collocation-con ul li:last-child a:last-child p small,
+.parts-con ul li:last-child a:last-child p small,
+.around-con ul li:last-child a:last-child p small {
+	font-size: 12px;
+}
+
+.home-electrical-con ul li:last-child a:last-child p i,
+.intelligence-con ul li:last-child a:last-child p i,
+.collocation-con ul li:last-child a:last-child p i,
+.parts-con ul li:last-child a:last-child p i,
+.around-con ul li:last-child a:last-child p i {
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	border-radius: 50%;
+	position: absolute;
+	left: 100px;
+	top: 10px;
+	border: 4px solid #ff6700;
+	font-size: 30px;
+	text-align: center;
+	line-height: 50px;
+	color: #ff6700;
+	font-style: normal;
+}
+
+/* hover效果 */
+.phone .phone-con div>a:hover,
+.phone .phone-con div li:hover,
+.home-electrical-con ul li:hover,
+/* issue */
+/* .home-electrical-con ul li:last-child a:hover, */
+.intelligence-con ul li:hover,
+.collocation-con ul li:hover,
+.parts-con ul li:hover,
+.around-con ul li:hover,
+.vedio-con ul li:hover{
+	transform: translate3d(0, -3px, 0);
+	transition: all 0.2s linear;
+	box-shadow: 0 15px 30px rgb(0 0 0 / 10%);
+}
+
+
+/*改进*/
+/* .imgDiv{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+} */
+
+.imgDiv img{
+	width: 990px;
+	height: 460px;
+	/* float: right; */
+	z-index: -1;
+}
+
+.banner-con .banner-img .dot{
+	height: 20px;
+	display: block;
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	line-height: 20px;
+}
+.banner-img .dot span{
+	display: block;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	margin: 10px 5px;
+	float: left;
+}
+
+#btnPrev, #btnNext{
+	width: 41px;
+	height: 69px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+#btnPrev{
+	background: url(../img/icon-slides.png) no-repeat -84px center;
+	left: 0;
+}
+#btnPrev:hover{
+	background: url(../img/icon-slides.png) no-repeat 0px center;
+	cursor: pointer;
+}
+#btnNext{
+	background: url(../img/icon-slides.png) no-repeat -125px center;
+	right: 0;
+}
+#btnNext:hover{
+	background: url(../img/icon-slides.png) no-repeat -42px center;
+	cursor: pointer;
+}

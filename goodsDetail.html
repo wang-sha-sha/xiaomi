@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>my 商品详情页</title>
+		<link rel="shortcut icon" href="img/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			li {
+				list-style: none;
+			}
+
+			#small-box {
+				width: 400px;
+				height: 400px;
+				/* background-image: url(img/goodsDetail/0.jpg); */
+				background-size: 400px 400px;
+				position: absolute;
+				left: 300px;
+				top: 110px;
+				border: 1px solid #e3e3e3;
+			}
+
+			#big-box {
+				width: 400px;
+				height: 400px;
+				/* background-image: url(img/goodsDetail/0.jpg); */
+				background-size: 1600px 1600px;
+				position: absolute;
+				left: 800px;
+				top: 110px;
+				display: none;
+				border: 1px solid #e3e3e3;
+			}
+
+			#mask {
+				width: 100px;
+				height: 100px;
+				background-color: aqua;
+				opacity: 0.2;
+				position: absolute;
+				display: none;
+			}
+
+			.magnifier_img {
+				margin-left: 50px;
+				position: absolute;
+				left: 200px;
+				top: 550px;
+			}
+
+			.magnifier_img>li {
+				width: 100px;
+				height: 100px;
+				background-size: 100px 100px;
+				background-color: #00FFFF;
+				float: left;
+				margin: 30px;
+				border: 1px solid #e3e3e3;
+			}
+			.goods {
+				height: 800px;
+			}
+
+			.goods .goods-con {
+				width: 1226px;
+				height: 100%;
+				margin: auto;
+				display: flex;
+				justify-content: space-between;
+			}
+
+			#goods-magnifier,
+			#goods_detail {
+				width: 48%;
+				height: 100%;
+			}
+
+
+			#goods_detail {
+				padding-left: 20px;
+				padding-top: 60px;
+			}
+
+			#goods_detail .goods_title {
+				font-size: 18px;
+				font-weight: normal;
+				margin: 15px 0;
+			}
+
+			#goods_detail .goods_descr {
+				font-size: 14px;
+				color: gray;
+			}
+
+			#goods_detail .goods_adv {
+				color: #ff6700;
+			}
+
+			#goods_detail .goods_shop {
+				color: #ff6700;
+				margin: 15px 0;
+			}
+
+			#goods_detail .goods_price {
+				color: #ff6700;
+			}
+
+			#goods_detail .goods_price_counted {
+				text-decoration: line-through;
+				color: gray;
+				font-size: 13px;
+			}
+
+			.goods_line {
+				padding-bottom: 20px;
+				margin-bottom: 20px;
+				border-bottom: 1px solid #e0e0e0;
+			}
+
+			#goods_detail .goods_address {
+				height: 80px;
+				background-color: #fafafa;
+				border: 1px solid #e0e0e0;
+				padding-left: 20px;
+				padding-top: 50px;
+				font-size: 14px;
+			}
+
+			#goods_detail .goods_address a,
+			#goods_detail .goods_address span:last-of-type {
+				color: #ff6700;
+			}
+
+			.goods_colorArr,
+			.goods_versionArr {
+				font-size: 18px;
+				font-weight: normal;
+				margin: 18px 0;
+			}
+
+			.goods_ul_color,
+			.goods_ul_version {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-around;
+			}
+
+			.add_input {
+				width: 280px;
+				height: 40px;
+				text-align: center;
+				font-size: 16px;
+				margin-bottom: 10px;
+				margin-left: 10px;
+				border: 1px solid #e0e0e0;
+				line-height: 40px;
+			}
+
+			.goods_total {
+				width: 550px;
+				height: 120px;
+				background-color: #f9f9fa;
+				margin-top: 10px;
+				padding: 20px;
+				line-height: 60px;
+			}
+
+			.goods_total .total_const,
+			.goods_total .total_price {
+				color: #ff6700;
+				font-size: 20px;
+			}
+
+			.goods_total .total_desc {
+				font-size: 14px;
+				display: flex;
+				justify-content: space-between;
+			}
+
+			.goods_total .total_desc span {
+				display: inline-block;
+			}
+
+			.btn-box {
+				width: 100%;
+				height: 55px;
+				display: flex;
+				margin: 20px 0 30px;
+			}
+
+			.btn-box .sale-btn {
+				width: 60%;
+				height: 100%;
+				line-height: 55px;
+				text-align: center;
+				background-color: #ff6700;
+				margin-right: 30px;
+			}
+
+			.btn-box a {
+				color: white;
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+
+			.btn-box .favorite-btn {
+				width: 30%;
+				height: 100%;
+				line-height: 55px;
+				background-color: #b0b0b0;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="goods">
+			<div class="goods-con">
+				<div id="goods-magnifier">
+					<div>
+						<div></div>
+					</div>
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+					<div></div>						
+				</div>
+
+				<div id="goods_detail">
+					<h3 class='goods_title'></h3>
+					<p><span class='goods_adv'></span><span class='goods_descr'></span></p>
+					<p class='goods_shop'></p>
+					<p>
+						<span class='goods_price'></span>
+						<span class='goods_price_counted'></span>
+					</p>
+					<div>
+						<span class='goods_address_1'></span>
+						<a href='#' class='goods_address_2'></a><br>
+						<span class='goods_address_3'></span>
+					</div>
+					<h4 class='goods_colorArr'></h4>
+					<!-- 数组 -->
+					<ul class='goods_ul_color'>
+
+					</ul>
+					<h4 class='goods_versionArr'></h4>
+					<!-- 数组 -->
+					<ul class='goods_ul_version'>
+					</ul>
+					<div id='total'>
+						<p>
+							<span></span>
+							<span></span>
+						</p>
+						<p><span></span><span></span></p>
+					</div>
+
+					<div>
+						<div>
+							<a href='#'></a>
+						</div>
+						<div>
+							<a href='#'></a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>
+<script src='js/jQuery.js'></script>
+<script type="text/javascript">
+	
+	//放大镜部分
+	class Magnifier {
+		constructor(newSmallBox, newMask, newBigBox, arrImg) {
+			this.smallBox = newSmallBox;
+			this.mask = newMask;
+			this.bigBox = newBigBox;
+			this.goodsImg = arrImg;
+			this.eventBind();
+		}
+		onmouseover() {
+			let that = this;
+			this.smallBox.onmouseover = function() {
+				that.mask.style.display = 'block';
+				that.bigBox.style.display = 'block';
+			}
+		}
+		onmouseout() {
+			let that = this;
+			this.smallBox.onmouseout = function() {
+				that.mask.style.display = 'none';
+				that.bigBox.style.display = 'none';
+			}
+		}
+		onmousemove() {
+			let that = this;
+			this.smallBox.onmousemove = function(evt) {
+
+				let e = evt || event;
+				// 图片随鼠标移动
+				let left = e.pageX - this.offsetLeft - that.mask.offsetWidth / 2;
+				let top = e.pageY - this.offsetTop - that.mask.offsetHeight / 2;
+				if (left < 0) {
+					left = 0;
+				}
+				let maxLeft = this.offsetWidth - that.mask.offsetWidth;
+				if (left > maxLeft) {
+					left = maxLeft;
+				}
+				if (top < 0) {
+					top = 0;
+				}
+				let maxTop = this.offsetHeight - that.mask.offsetHeight;
+				if (top > maxTop) {
+					top = maxTop;
+				}
+
+				that.mask.style.left = left + 'px';
+				that.mask.style.top = top + 'px';
+				let x = that.bigBox.offsetWidth * left / that.mask.offsetWidth;
+				let y = that.bigBox.offsetHeight * top / that.mask.offsetHeight;
+				that.bigBox.style.backgroundPositionX = -x + 'px';
+				that.bigBox.style.backgroundPositionY = -y + 'px';
+			}
+
+		}
+		// 点击不同的li,显示相应的图片
+		updateImg() {
+			let oLis = document.getElementsByTagName('li');
+			let that = this;
+			for (let i = 0; i < oLis.length; i++) {
+				oLis[i].onclick = function() {
+					// 更改smallbox和bigbox的背景图
+					that.smallBox.style.backgroundImage = 'url(img/goodsDetail/'+ that.goodsImg[i];
+					that.bigBox.style.backgroundImage = 'url(img/goodsDetail/'+ that.goodsImg[i];
+				}
+			}
+		}
+		eventBind() {
+			this.onmouseover();
+			this.onmouseout();
+			this.onmousemove();
+			this.updateImg();
+		}
+	}
+
+	// 发送Ajax请求, 渲染页面
+	function loadGoods(){
+		let goodsNum = self.location.href.split("=")[1];
+		// 发送ajax请求，获取物品的详情信息
+		let xhr = new XMLHttpRequest();
+		xhr.open("get", "goodsDetail.php?goodsId="+goodsNum, true);
+		xhr.send();
+		xhr.onreadystatechange = function() {
+			if (xhr.status == 200 && xhr.readyState == 4) {
+				fun(xhr.responseText);
+			}
+		}
+		
+	}
+	
+	function fun(resText) {
+		let json = JSON.parse(resText);
+		
+		let arrImg;
+		for (let index in json) {
+			// 取出图片路径
+			if(index === "goods_img"){
+				// 给对应元素添加属性
+				arrImg = json[index].split(","); //字符串变数组
+				$("#goods-magnifier").find("div").eq(0).attr("id","small-box");
+				$("#small-box").find("div").attr("id","mask");
+				$("#goods-magnifier").find("ul").eq(0).attr("class","magnifier_img");
+				$(".magnifier_img").next().attr("id","big-box");
+
+				// 初始化li里的图片
+				for(let i = 0;i<arrImg.length;i++){
+					$(".magnifier_img>li").eq(i).css({
+						"backgroundImage": "url(img/goodsDetail/"+ arrImg[i]
+					});
+				}
+				// 初始化small img图片
+				$("#small-box").css({
+					"backgroundImage": "url(img/goodsDetail/"+ arrImg[0]
+				});
+				$("#big-box").css({
+					"backgroundImage": "url(img/goodsDetail/"+ arrImg[0]
+				});
+				
+				let oSmallBox = document.getElementById('small-box');
+				let oMask = document.getElementById('mask');
+				let oBigBox = document.getElementById('big-box');
+				
+				let mf = new Magnifier(oSmallBox, oMask, oBigBox, arrImg);
+			}
+			
+			// 将数据库里的值取出来赋给对应的html元素
+			if (index === "goods_price") {
+				// 添加属性
+				$(".goods_price").parent().attr("class", "goods_line");
+			}
+
+			if (index === "goods_address_1") {
+				// 添加属性
+				$(".goods_address_1").parent().attr("class", "goods_address");
+			}
+
+			if (index === 'goods_colorArr') {
+				$(".goods_colorArr").html("选择颜色");
+			}
+
+			if (index === 'goods_versionArr') {
+				$(".goods_versionArr").html("选择版本");
+			}
+
+			if (index === 'goods_colorArr' || index === 'goods_versionArr') {
+				let arr = json[index].split(","); //字符串变数组
+				for (let i = 0; i < arr.length; i++) {
+					// 创建li
+					let oLi = "<li class='add_input'>" + arr[i] + "</li>";
+					$('.' + index).next().append(oLi);
+				}
+			} else {
+				$("." + index).html(json[index]);
+			}
+		}
+
+		// 给第一个添加选中样式
+		$(".goods_ul_color").children().eq(0).css({
+			"borderColor": "#ff6700"
+		});
+		$(".goods_ul_version").children().eq(0).css({
+			"borderColor": "#ff6700"
+		});
+		
+		$(".goods_ul_color").children().eq(0).addClass("selected");
+		$(".goods_ul_version").children().eq(0).addClass("selected");
+		
+
+		// 绑定事件
+		//选择颜色
+
+		// 鼠标滑过添加高亮边框，其他remove高亮边框
+		$(".goods_ul_color>.add_input").mouseover(function() {
+			$(this).css({
+				"borderColor": "#ff6700",
+				"cursor": "pointer"
+			});
+			$(this).not(this).css({
+				"border": "1px solid #e0e0e0"
+			});
+			// 有选中属性的高亮边框不移出
+			$(".goods_ul_color>.add_input[class*='selected']").css({
+				"borderColor": "#ff6700"
+			});
+		});
+		// 鼠标移开,高亮移除,选中元素的高亮仍然在
+		$(".goods_ul_color>.add_input").mouseout(function() {
+			$(this).css({
+				"border": "1px solid #e0e0e0"
+			});
+			$(".goods_ul_color>.add_input[class*='selected']").css({
+				"borderColor": "#ff6700"
+			});
+		});
+		// 鼠标点击选中
+		$(".goods_ul_color>.add_input").click(function() {
+			$(this).css({
+				"borderColor": "#ff6700",
+			});
+
+			$(".goods_ul_color>li").not(this).css({
+				"borderColor": "#e0e0e0"
+			});
+			// 添加选中属性
+			$(this).addClass("selected");
+			// 其他元素移出选中属性
+			$(".goods_ul_color>li").not($(this)).removeClass("selected");
+			$(this).siblings().removeClass("selected");
+		});
+
+		//选择版本
+		// 鼠标滑过添加高亮边框，其他remove高亮边框
+		$(".goods_ul_version>.add_input").mouseover(function() {
+			$(this).css({
+				"borderColor": "#ff6700",
+				"cursor": "pointer"
+			});
+			$(this).not(this).css({
+				"border": "1px solid #e0e0e0"
+			});
+			// 有选中属性的高亮边框不移出
+			$(".goods_ul_version>.add_input[class*='selected']").css({
+				"borderColor": "#ff6700"
+			});
+		});
+		// 鼠标移开,高亮移除,选中元素的高亮仍然在
+		$(".goods_ul_version>.add_input").mouseout(function() {
+			$(this).css({
+				"border": "1px solid #e0e0e0"
+			});
+			$(".goods_ul_version>.add_input[class*='selected']").css({
+				"borderColor": "#ff6700"
+			});
+		});
+		// 鼠标点击选中
+		$(".goods_ul_version>.add_input").click(function() {
+			$(this).css({
+				"borderColor": "#ff6700",
+			});
+
+			$(".goods_ul_version>li").not(this).css({
+				"borderColor": "#e0e0e0"
+			});
+			// 添加选中属性
+			// $(this).addClass("selected",function(){
+				// $("#total>p:first>span:first").html($(".goods_title").html()+' '+($(".goods_ul_color>li[class*='selected']").html())+' ' +($(".goods_ul_version>li[class*='selected']").html()));
+			// });
+			// 其他元素移出选中属性
+			$(".goods_ul_version>li").not($(this)).removeClass("selected");
+			$(this).siblings().removeClass("selected");
+		});
+		
+		// total
+		$("#total").attr("class", "goods_total");
+		$("#total>p:first").attr("class", "total_desc");
+		$("#total>p:first>span:first").html($(".goods_title").html()+' '+($(".goods_ul_color>li[class*='selected']").html())+' ' +($(".goods_ul_version>li[class*='selected']").html()));
+		$("#total>p:first>span:last").html($(".goods_price").html());
+		
+		$("#total>p:last>span:first").attr("class", "total_const");
+		$("#total>p:last>span:first").html("总计：");
+		$("#total>p:last>span:last").attr("class", "total_price");
+		$("#total>p:last>span:last").html($(".goods_price").html());
+		
+		// 添加到购物车和喜欢部分
+		$("#total").next().attr("class", "btn-box");
+		$(".btn-box").children("div").eq(0).attr("class", "sale-btn");
+		$(".btn-box").children("div").eq(1).attr("class", "favorite-btn");
+		
+		$(".sale-btn a").html("加入购物车");
+		$(".favorite-btn a").html("喜欢");
+	}
+	
+	//主函数调用
+	loadGoods();
+</script>
