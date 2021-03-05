@@ -10,7 +10,7 @@
 		mysql_select_db("2012");
 	}
 	//3.注册添加数据
-	mysql_query("insert into account (user_name, password) values ('$userName','$password')",$conn);
+	mysql_query("insert into t_account (user_name, password) values ('$userName','$password')",$conn);
 	//4.关闭连接对象
 	mysql_close($conn);
 	

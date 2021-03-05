@@ -3,13 +3,13 @@
 	$userName = $_POST["userName"];
 	$password = $_POST["password"];
 	// 1. 创建连接对象
-	$conn = mysql_connect("localhost:3306","root","root");
+	$conn = mysql_connect("127.0.0.1:3306","root","root");
 	if($conn){
 		// 2.选择库
 		mysql_select_db("2012");
 	}
 	//3.登录查询数据
-	$result = mysql_query("select * from account where user_name = '$userName' and password ='$password'",$conn);
+	$result = mysql_query("select * from t_account where user_name = '$userName' and password ='$password'",$conn);
 	// echo mysql_num_rows($result);
 
 	

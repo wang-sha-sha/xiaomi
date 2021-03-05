@@ -208,7 +208,6 @@
 					<form method="">
 						<input type="text" placeholder="手机号码" name='userName' id='phoneNum' /><span></span><br>
 						<input type="password" placeholder="密码" name='password' id='pwd' /><span></span><br>
-						<!-- <div><span id='error-note'></span></div> -->
 						<div id='error-note'></div>
 						<input type="submit" value="登录" id='loginId'/><br>
 						<p><a href='#'>手机短信登录/注册</a></p>
@@ -266,6 +265,8 @@
 			xhr = new XMLHttpRequest();
 		}
 		xhr.open('post', 'login.php', true);
+		
+		
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.send("userName=" + oPhoneNum.value + "&password=" + oPwd.value);
 		xhr.onreadystatechange = function() {
@@ -279,7 +280,7 @@
 	
 	function fun(resText){
 		let oSpan = document.querySelector("#error-note");
-		if(resText=='失败'){
+		if(resText==='失败'){
 			oSpan.innerHTML = "!用户名或密码不正确";
 			// oSpan.style.color = '#ff6700';
 			oSpan.style.color = 'red';

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>成功加入购物车</title>
+		<link rel="shortcut icon" href="img/favicon.ico"/>
+		<style type="text/css">
+			.box{
+				background-color: #f4f4f5;
+				height: 150px;
+			}
+			.con{
+				width: 1226px;			
+				margin: auto;			
+			}
+			.con .con-left{
+				width: 500px;
+				float: left;
+			}
+			.con>div{
+				height: 100%;
+				padding-top: 50px;
+				box-sizing: border-box;
+			}
+			.con .con-left img{
+				float: left;
+				height: 100%;
+				display: block;
+			}
+			.con .con-left h3{
+				margin-left: 100px;
+				font-size: 28px;
+				font-weight: normal;
+			}
+			.con .con-left span{
+				margin-left: 35px;
+				font-size: 14px;
+				color: #4d4d4d;
+			}
+			.con .con-right{
+				float: right;
+				padding-right: 40px;
+				
+			}
+			.con .con-right div{
+				float: left;
+				border: 1px solid gray;
+				margin-right: 30px;
+				margin-top: 20px;
+				width: 200px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+			}
+			.con .con-right div:first-of-type{
+				color: gray;
+			}
+			.con .con-right div:last-of-type{
+				background-color: #ff6700;
+				color: white;
+				border: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class='load-header'></div>
+		<div class='box'>
+			<div class='con'>
+				<div class='con-left'>	
+					<div>
+						<img src="img/goodsCart/success.png" >
+						<h3>已成功加入购物车！</h3>
+						<span>小米手表Color 运动版 典雅黑</span>
+					</div>
+				</div>
+				<div class='con-right'>
+					<div>返回上一级</div>
+					<div>去购物车结算</div>
+				</div>			
+			</div>
+		</div>
+
+		<div class='load-footer'></div>
+	</body>
+</html>
+<script src='js/jQuery.js'></script>
+<script type="text/javascript">
+	$(".load-header").load("header.html");
+	$(".load-footer").load("footer.html");
+	// 返回上一级
+	$(".con-right div").eq(0).mouseover(function(){
+		$(this).css({
+			"backgroundColor": "white",
+			"cursor": "pointer"
+		});
+	});
+	$(".con-right div").eq(0).click(function(){
+		// 跳转页面
+		let goodsNum = self.location.href.split("=")[1];
+		location.href='goodsDetail.html?goodsId='+goodsNum;
+	});
+	$(".con-right div").eq(0).mouseout(function(){
+		$(this).css({
+			"backgroundColor": "#f4f4f5"
+		});
+	});
+	// 去购物车结算
+	$(".con-right div").eq(1).mouseover(function(){
+		$(this).css({
+			"cursor": "pointer"
+		});
+	});
+	$(".con-right div").eq(1).click(function(){
+		// 跳转页面???
+		// 传入userName给购物车页面
+		// location.href='goodsCart.html?userName=';
+		 location.href='goodsCart.html';
+	});
+</script>
+

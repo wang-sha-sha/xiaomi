@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>my购物车-小米商城</title>
+		<link rel="shortcut icon" href="img/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style type="text/css">
+			.header {
+				border-bottom: 1px solid red;
+				margin-bottom: 40px;
+			}
+
+			.header-con,
+			.cart-con,
+			.cart-goods {
+				height: 100px;
+				margin: auto;
+				width: 1226px;
+			}
+
+			.header-con .header-logo {
+				width: 49px;
+				height: 49px;
+				padding-top: 20px;
+				float: left;
+				position: relative;
+				overflow: hidden;
+				margin-right: 40px;
+			}
+
+			.header-con .header-logo img:first-child {
+				left: 0px;
+			}
+
+			.header-con .header-logo img:last-child {
+				left: -49px;
+			}
+
+			.header-con .header-logo img:first-child,
+			.header-con .header-logo img:last-child {
+				position: absolute;
+				top: 20px;
+				background-color: #ff6700;
+				/* 过渡 */
+				transition: all 0.3s;
+			}
+
+			.header-con .header-logo:hover img:first-child {
+				left: 49px;
+			}
+
+			.header-con .header-logo:hover img:last-child {
+				left: 0px;
+			}
+
+			.header-con span {
+				line-height: 100px;
+				margin-right: 20px;
+			}
+
+			.header-con .title {
+				font-size: 26px;
+			}
+
+			.header-con .note {
+				font-size: 14px;
+				color: #878787;
+			}
+
+			.header-con ul {
+				line-height: 100px;
+
+			}
+
+			.header-con ul li {
+				padding-right: 20px;
+			}
+
+			.header-con ul,
+			.header-con ul li {
+				float: right;
+			}
+
+			.header-con a {
+				color: #878787;
+			}
+
+			.header-con a:hover {
+				color: #ff6700;
+			}
+
+			.cart-con {
+				line-height: 80px;
+				height: 80px;
+				border: 1px solid #dedede;
+			}
+
+			.cart-con>div,
+			.cart-goods>div {
+				float: left;
+
+			}
+
+			.cart-box,
+			.cart-box-item {
+				width: 15px;
+				height: 15px;
+				margin: 32px 15px 10px 15px;
+				border: 1px solid gray;
+			}
+			.cart-box{
+				line-height: 15px;
+				text-align: center;
+			}
+
+			.cart-box-item {
+				margin: 40px 15px 10px 15px;
+				line-height: 15px;
+				text-align: center;
+			}
+
+			.cart-check {
+				width: 15%;
+			}
+
+			.cart-check-item {
+				width: 15%;
+				height: 100px;
+				/* background: url(img/goodsCart/0.jpg) no-repeat 65px 5px; */
+				padding: 20px;
+				box-sizing: border-box;
+			}
+
+			.cart-name {
+				width: 28%;
+			}
+
+			.cart-price,
+			.cart-number,
+			.cart-total,
+			.cart-action,
+			.cart-action-item {
+				width: 13%;
+				text-align: center;
+
+			}
+
+			.cart-goods {
+				height: 100px;
+				line-height: 100px;
+				border: 1px solid #dedede;
+				border-top: none;
+			}
+
+			.cart-number button {
+				width: 30px;
+				height: 20px;
+				line-height: 18px;
+				font-size: 18px;
+			}
+			.cart-total{
+				color: #ff6700;
+			}
+
+			.cart-action {
+				font-size: 18px;
+				text-align: center;
+			}
+
+			.cart-action-item {
+				height: 100px;
+			}
+
+			.cart-action-item a {
+				width: 20px;
+				height: 20px;
+				/* 鼠标滑过 */
+				/* background-color: pink; */
+				border-radius: 50%;
+				display: inline-block;
+				line-height: 20px;
+			}
+			.selected{
+				background-color: #ff6700;
+				color: white;
+			}
+
+			.load-footer{
+				margin-top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class='header'>
+			<div class='header-con'>
+				<div class='header-logo'>
+					<img src="img/mi-logo.png">
+					<img src="img/mi-home.png">
+				</div>
+				<span class='title'>我的购物车</span>
+				<span class='note'>温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</span>
+				<ul>
+					<li><a href='#'>我的订单<i></i></a></li>
+					<li>|</li>
+					<li><a href='#'>1357290</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class='cart-con'>
+			<div class='cart-box'></div>
+			<div class='cart-check'>全选</div>
+			<div class='cart-name'>商品名称</div>
+			<div class='cart-price'>单价</div>
+			<div class='cart-number'>数量</div>
+			<div class='cart-total'>小计</div>
+			<div class='cart-action'>操作</div>
+		</div>
+		<div class='cart-goods'>
+			<div class='cart-box-item'></div>
+			<div class='cart-check-item'></div>
+			<div class='cart-name'>Redmi 9A 4GB+64GB 砂石黑</div>
+			<div class='cart-price'><span>599</span>元</div>
+			<div class='cart-number'>
+				<button class='reduce'>-</button>
+				<span class='goods-num'>1</span>
+				<button class='add'>+</button>
+			</div>
+			<div class='cart-total'><span>1000</span>元</div>
+			<div class='cart-action-item'><a>x</a></div>
+		</div>
+		<div class='cart-goods'>
+			<div class='cart-box-item'></div>
+			<div class='cart-check-item'></div>
+			<div class='cart-name'>Redmi 10X 5G 8GB+128GB 胧月金</div>
+			<div class='cart-price'><span>1699</span>元</div>
+			<div class='cart-number'>
+				<button class='reduce'>-</button>
+				<span class='goods-num'>1</span>
+				<button class='add'>+</button>
+			</div>
+			<div class='cart-total'><span>1699</span>元</div>
+			<div class='cart-action-item'><a>x</a></div>
+		</div>
+		<div class='load-footer'></div>
+	</body>
+</html>
+<script src='js/jQuery.js'></script>
+<script type="text/javascript">
+	$(".load-footer").load("footer.html");
+	
+	// .cart-box,
+	// .cart-box-item
+	// 选中框：鼠标滑过出现选中,鼠标移开,选中消失，鼠标点击，选中并且变背景色
+	$(".cart-box,.cart-box-item").mouseover(function(){
+		$(this).html("√");
+		$(this).css({
+			"cursor": "pointer"
+		});
+	});
+	$(".cart-box,.cart-box-item").mouseout(function(){
+		$(this).html("");
+		// 如果有选中属性则属性不变
+		if($(this).hasClass("selected")){
+			$(this).html("√");
+		}
+	});
+	$(".cart-box,.cart-box-item").click(function(){
+		// 添加选中属性
+		$(this).toggleClass("selected");
+	});
+	
+	
+	// 鼠标滑过delete按钮
+	$(".cart-action-item a").mouseover(function(){
+		$(this).css({
+			"backgroundColor": "#ff6700"
+		});
+		$(this).css({
+			"cursor": "pointer"
+		});
+		// 添加title属性
+		$(this).attr("title","删除");
+	});
+	// 鼠标移开
+	$(".cart-action-item a").mouseout(function(){
+		$(this).css({
+			"backgroundColor": "white"
+		});
+	});
+	// 按钮减
+	$(".cart-number").children(".reduce").click(function(){
+		console.log("aaa");
+		// 数量减
+		let numRed = $(this).next().html();
+		if(numRed<=1){
+			alert("修改数量不能小于0")
+		} else{
+			$(this).next().html(--numRed);
+		}		
+		//更新小计
+		// 必须拿this去找节点关系
+		$(this).parent().next().find("span").html($(this).next().html()*$(this).parent().prev().find("span").html());
+	});
+	// 按钮加
+	$(".cart-number").children(".add").click(function(){
+		console.log("bbb");
+		// 数量加
+		let numAdd = $(this).prev().html();
+		$(this).prev().html(++numAdd);
+		//更新小计
+		//单价*数量	
+		 $(this).parent().next().find("span").html($(this).prev().html()*$(this).parent().prev().find("span").html());
+		
+	});
+	// 添加鼠标指针样式
+	$(".cart-number").children("button").mouseover(function(){
+		$(this).css({
+			"cursor": "pointer"
+		});
+	});
+	
+	
+	// 全选
+	$(".cart-box").click(function(){
+		// 给其他item选中样式
+		if($(this).hasClass("selected")){
+			$(".cart-box-item").addClass("selected");
+			$(".cart-box-item").html("√");
+		}else{
+			$(".cart-box-item").removeClass("selected");
+			$(".cart-box-item").html("");
+		}
+	});
+	$(".cart-con").next().find(".cart-check-item").css({
+		"background": "url(img/goodsCart/0.jpg) no-repeat 65px 5px"
+	});
+	$(".cart-con").next().next().find(".cart-check-item").css({
+		"background": "url(img/goodsCart/1.jpg) no-repeat 65px 5px"
+	});
+</script>

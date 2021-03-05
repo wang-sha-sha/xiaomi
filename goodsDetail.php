@@ -5,7 +5,7 @@
 	$arr = [];
 	
 	// 1. 创建连接对象
-	$conn = mysql_connect("localhost:3306","root","root");
+	$conn = mysql_connect("127.0.0.1:3306","root","root");
 	if($conn){
 		// 2.选择库
 		mysql_select_db("2012");

@@ -21,8 +21,8 @@
 				/* background-image: url(img/goodsDetail/0.jpg); */
 				background-size: 400px 400px;
 				position: absolute;
-				left: 300px;
-				top: 110px;
+				left: 260px;
+				top: 260px;
 				border: 1px solid #e3e3e3;
 			}
 
@@ -32,8 +32,10 @@
 				/* background-image: url(img/goodsDetail/0.jpg); */
 				background-size: 1600px 1600px;
 				position: absolute;
-				left: 800px;
-				top: 110px;
+				/* 				left: 800px;
+				top: 110px; */
+				left: 700px;
+				top: 260px;
 				display: none;
 				border: 1px solid #e3e3e3;
 			}
@@ -50,8 +52,8 @@
 			.magnifier_img {
 				margin-left: 50px;
 				position: absolute;
-				left: 200px;
-				top: 550px;
+				left: 140px;
+				top: 700px;
 			}
 
 			.magnifier_img>li {
@@ -60,11 +62,13 @@
 				background-size: 100px 100px;
 				background-color: #00FFFF;
 				float: left;
-				margin: 30px;
+				margin: 40px;
 				border: 1px solid #e3e3e3;
 			}
+
 			.goods {
-				height: 800px;
+				/* height:1000px; */
+				/* background-color: pink; */
 			}
 
 			.goods .goods-con {
@@ -84,7 +88,7 @@
 
 			#goods_detail {
 				padding-left: 20px;
-				padding-top: 60px;
+				padding-top: 20px;
 			}
 
 			#goods_detail .goods_title {
@@ -220,6 +224,8 @@
 		</style>
 	</head>
 	<body>
+		<!-- header -->
+		<div class='load-header'></div>
 		<div class="goods">
 			<div class="goods-con">
 				<div id="goods-magnifier">
@@ -231,7 +237,7 @@
 						<li></li>
 						<li></li>
 					</ul>
-					<div></div>						
+					<div></div>
 				</div>
 
 				<div id="goods_detail">
@@ -276,12 +282,15 @@
 				</div>
 			</div>
 		</div>
-
+		<!-- footer -->
+		<div class='load-footer'></div>
 	</body>
 </html>
 <script src='js/jQuery.js'></script>
 <script type="text/javascript">
-	
+	$(".load-header").load("header.html");
+	$(".load-footer").load("footer.html");
+
 	//放大镜部分
 	class Magnifier {
 		constructor(newSmallBox, newMask, newBigBox, arrImg) {
@@ -339,13 +348,14 @@
 		}
 		// 点击不同的li,显示相应的图片
 		updateImg() {
-			let oLis = document.getElementsByTagName('li');
+			// let oLis = document.getElementsByTagName('li');
+			let oLis = document.querySelectorAll('.magnifier_img>li');
 			let that = this;
 			for (let i = 0; i < oLis.length; i++) {
 				oLis[i].onclick = function() {
 					// 更改smallbox和bigbox的背景图
-					that.smallBox.style.backgroundImage = 'url(img/goodsDetail/'+ that.goodsImg[i];
-					that.bigBox.style.backgroundImage = 'url(img/goodsDetail/'+ that.goodsImg[i];
+					that.smallBox.style.backgroundImage = 'url(img/goodsDetail/' + that.goodsImg[i];
+					that.bigBox.style.backgroundImage = 'url(img/goodsDetail/' + that.goodsImg[i];
 				}
 			}
 		}
@@ -356,57 +366,93 @@
 			this.updateImg();
 		}
 	}
-
 	// 发送Ajax请求, 渲染页面
-	function loadGoods(){
+	function loadGoods() {
 		let goodsNum = self.location.href.split("=")[1];
 		// 发送ajax请求，获取物品的详情信息
 		let xhr = new XMLHttpRequest();
-		xhr.open("get", "goodsDetail.php?goodsId="+goodsNum, true);
+		xhr.open("get", "goodsDetail.php?goodsId=" + goodsNum, true);
 		xhr.send();
 		xhr.onreadystatechange = function() {
 			if (xhr.status == 200 && xhr.readyState == 4) {
 				fun(xhr.responseText);
+				// 点击加入购物车，发送ajax添加数据到数据库,然后跳转页面
+				// 给按钮添加绑定事件
+				$(".sale-btn a").click(function() {
+					console.log("在按钮里");
+					$.ajax({
+						url: "addGoods.php",
+						type: "post",
+						data: {
+							//订单号(随机生成数字)
+							order_id:666,
+							//用户id(先固定成1)
+							user_id: 222,
+							//商品id
+							goods_id: 1,
+							//商品名字
+							// goods_title: "$(.goods_title).html()",
+							goods_title: "Redmi手机",
+							//商品颜色
+							// goods_color: "$(.goods_ul_color li).hasClass("selected")",
+							goods_color: "胧月金",
+							//商品版本
+							// goods_version:  "$(.goods_ul_version li).hasClass("selected")",
+							goods_version: "8GB+128GB",
+							//商品价格
+							// goods_price: "",
+							goods_price: 1500,
+							//商品数量(默认每次加一)
+							goods_count: 1
+						},
+						success: function() {
+							// 跳转页面到加入购车车页面
+							location.href="addToCart.html";
+						},
+						error: function(){
+							console.log("error了");
+						}
+					});
+				});
+
 			}
 		}
-		
 	}
-	
+
 	function fun(resText) {
 		let json = JSON.parse(resText);
-		
 		let arrImg;
 		for (let index in json) {
 			// 取出图片路径
-			if(index === "goods_img"){
+			if (index === "goods_img") {
 				// 给对应元素添加属性
 				arrImg = json[index].split(","); //字符串变数组
-				$("#goods-magnifier").find("div").eq(0).attr("id","small-box");
-				$("#small-box").find("div").attr("id","mask");
-				$("#goods-magnifier").find("ul").eq(0).attr("class","magnifier_img");
-				$(".magnifier_img").next().attr("id","big-box");
+				$("#goods-magnifier").find("div").eq(0).attr("id", "small-box");
+				$("#small-box").find("div").attr("id", "mask");
+				$("#goods-magnifier").find("ul").eq(0).attr("class", "magnifier_img");
+				$(".magnifier_img").next().attr("id", "big-box");
 
 				// 初始化li里的图片
-				for(let i = 0;i<arrImg.length;i++){
+				for (let i = 0; i < arrImg.length; i++) {
 					$(".magnifier_img>li").eq(i).css({
-						"backgroundImage": "url(img/goodsDetail/"+ arrImg[i]
+						"backgroundImage": "url(img/goodsDetail/" + arrImg[i]
 					});
 				}
 				// 初始化small img图片
 				$("#small-box").css({
-					"backgroundImage": "url(img/goodsDetail/"+ arrImg[0]
+					"backgroundImage": "url(img/goodsDetail/" + arrImg[0]
 				});
 				$("#big-box").css({
-					"backgroundImage": "url(img/goodsDetail/"+ arrImg[0]
+					"backgroundImage": "url(img/goodsDetail/" + arrImg[0]
 				});
-				
+
 				let oSmallBox = document.getElementById('small-box');
 				let oMask = document.getElementById('mask');
 				let oBigBox = document.getElementById('big-box');
-				
+
 				let mf = new Magnifier(oSmallBox, oMask, oBigBox, arrImg);
 			}
-			
+
 			// 将数据库里的值取出来赋给对应的html元素
 			if (index === "goods_price") {
 				// 添加属性
@@ -445,10 +491,10 @@
 		$(".goods_ul_version").children().eq(0).css({
 			"borderColor": "#ff6700"
 		});
-		
+
 		$(".goods_ul_color").children().eq(0).addClass("selected");
 		$(".goods_ul_version").children().eq(0).addClass("selected");
-		
+
 
 		// 绑定事件
 		//选择颜色
@@ -459,7 +505,7 @@
 				"borderColor": "#ff6700",
 				"cursor": "pointer"
 			});
-			$(this).not(this).css({
+			$(this).siblings().css({
 				"border": "1px solid #e0e0e0"
 			});
 			// 有选中属性的高亮边框不移出
@@ -482,7 +528,7 @@
 				"borderColor": "#ff6700",
 			});
 
-			$(".goods_ul_color>li").not(this).css({
+			$(".goods_ul_color>li").siblings().css({
 				"borderColor": "#e0e0e0"
 			});
 			// 添加选中属性
@@ -499,7 +545,7 @@
 				"borderColor": "#ff6700",
 				"cursor": "pointer"
 			});
-			$(this).not(this).css({
+			$(this).siblings().css({
 				"border": "1px solid #e0e0e0"
 			});
 			// 有选中属性的高亮边框不移出
@@ -522,38 +568,37 @@
 				"borderColor": "#ff6700",
 			});
 
-			$(".goods_ul_version>li").not(this).css({
+			$(".goods_ul_version>li").siblings().css({
 				"borderColor": "#e0e0e0"
 			});
 			// 添加选中属性
-			// $(this).addClass("selected",function(){
-				// $("#total>p:first>span:first").html($(".goods_title").html()+' '+($(".goods_ul_color>li[class*='selected']").html())+' ' +($(".goods_ul_version>li[class*='selected']").html()));
-			// });
+			$(this).addClass("selected");
 			// 其他元素移出选中属性
 			$(".goods_ul_version>li").not($(this)).removeClass("selected");
 			$(this).siblings().removeClass("selected");
 		});
-		
+
 		// total
 		$("#total").attr("class", "goods_total");
 		$("#total>p:first").attr("class", "total_desc");
-		$("#total>p:first>span:first").html($(".goods_title").html()+' '+($(".goods_ul_color>li[class*='selected']").html())+' ' +($(".goods_ul_version>li[class*='selected']").html()));
+		$("#total>p:first>span:first").html($(".goods_title").html() + ' ' + ($(".goods_ul_color>li[class*='selected']").html()) +
+			' ' + ($(".goods_ul_version>li[class*='selected']").html()));
 		$("#total>p:first>span:last").html($(".goods_price").html());
-		
+
 		$("#total>p:last>span:first").attr("class", "total_const");
 		$("#total>p:last>span:first").html("总计：");
 		$("#total>p:last>span:last").attr("class", "total_price");
 		$("#total>p:last>span:last").html($(".goods_price").html());
-		
+
 		// 添加到购物车和喜欢部分
 		$("#total").next().attr("class", "btn-box");
 		$(".btn-box").children("div").eq(0).attr("class", "sale-btn");
 		$(".btn-box").children("div").eq(1).attr("class", "favorite-btn");
-		
+
 		$(".sale-btn a").html("加入购物车");
 		$(".favorite-btn a").html("喜欢");
 	}
-	
+
 	//主函数调用
 	loadGoods();
 </script>
