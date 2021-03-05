@@ -1,6 +1,5 @@
-/* 版心 1534*/
-.top-con,
-.header-con,
+/* 版心 1226*/
+
 .banner-con,
 .columns4-con,
 .xiaomi-con,
@@ -17,181 +16,9 @@
 .star-life-con,
 .around-con,
 .pen-con,
-.vedio-con,
-.footer-con{
+.vedio-con{
 	width: 1226px;
 	margin: auto;
-}
-
-.top {
-	background-color: #333333;
-}
-
-.top-con {
-	height: 50px;
-	line-height: 50px;
-	font-size: 12px;
-}
-
-.top-con a {
-	color: #b0b0b0;
-}
-.top-con a:hover {
-	color: white;
-}
-
-.top-con span {
-	color: #424242;
-	margin: 0 3px;
-}
-
-.top-con .top-nav {
-	/* 左浮动 */
-	float: left;
-}
-
-.top-con .top-info {
-	float: right;
-}
-
-.top-con .top-shopping-car {
-	float: right;
-	width: 120px;
-	height: 40px;
-	margin-left: 15px;
-}
-
-.top-con .top-shopping-car .shoppingCarNum {
-	color: #b0b0b0;
-}
-
-.header-con {
-	height: 100px;
-}
-
-.header-con .header-logo {
-	width: 49px;
-	height: 49px;
-	padding-top: 20px;
-	float: left;
-	position: relative;
-	overflow: hidden;
-}
-
-.header-con .header-logo img:first-child {
-	left: 0px;
-}
-
-.header-con .header-logo img:last-child {
-	left: -49px;
-}
-
-.header-con .header-logo img:first-child,
-.header-con .header-logo img:last-child {
-	position: absolute;
-	top: 20px;
-	background-color: #ff6700;
-	/* 过渡 */
-	transition: all 0.3s;
-}
-
-.header-con .header-logo:hover img:first-child {
-	left: 49px;
-}
-
-.header-con .header-logo:hover img:last-child {
-	left: 0px;
-}
-
-.header-con .header-nav {
-	font-size: 14px;
-}
-
-.header-con .header-nav li {
-	float: left;
-}
-.header-con .header-nav li a:hover{
-	color: #ec5a00;
-}
-
-.header-con .header-nav .main-menu {
-	float: left;
-	margin-left: 130px;
-	margin-top: 38px;
-}
-
-.header-con .header-nav .main-menu>li {
-	float: left;
-	width: 80px;
-	/* border: 1px solid red; */
-	text-align: center;
-	cursor: pointer;
-}
-
-.header-con .header-nav .main-menu>li:hover .submenu {
-	display: block;
-}
-
-.header-con .header-nav .main-menu .submenu {
-	position: absolute;
-	left: 0;
-	width: 100%;
-	height: 200px;
-	background-color: white;
-	margin-top: 43px;
-	display: none;
-	/* 过渡要加给谁 */
-	/* transition: all 2s 1s ease; */
-	z-index: 999;
-	padding-left: 100px;
-	border-top: 1px solid #d6d6d6;
-
-}
-
-.header-con .header-nav .main-menu .submenu>li {
-	width: 180px;
-	height: 150px;
-	margin-top: 20px;
-	border-right: 1px solid #d6d6d6;
-}
-
-.header-con .header-nav .main-menu .submenu>li:last-child {
-	border: none;
-}
-
-.header-con .header-nav .main-menu .submenu>li img {
-	width: 100px;
-	height: 100px;
-	/* background-color: #EC5A00; */
-}
-
-.header-con .header-nav .main-menu .submenu>li p {
-	font-size: 10px;
-	margin: 8px 0;
-}
-
-.header-con .header-nav .main-menu .submenu>li p:last-child {
-	color: red;
-}
-
-.header-con .header-search {
-	padding-top: 25px;
-}
-
-.header-con .header-search input {
-	width: 241px;
-	height: 50px;
-	margin-left: 15px;
-	/* border: 1px solid red; 继续*/
-	border-right: none;
-}
-
-.header-con .header-search a {
-	width: 50px;
-	height: 50px;
-	display: block;
-	float: right;
-	/* border: 1px solid red;  继续 */
 }
 
 
@@ -547,7 +374,6 @@
 }
 .vedio .vedio-con ul li{
 	width: 24%;
-	/* border: 1px solid red; */
 	background-color: white;
 	
 }
@@ -559,81 +385,6 @@
 	margin-top: 30px;
 	text-align: center;
 }
-
-/* footer */
-.footer .footer-con>ul{
-	display: flex;
-	justify-content: space-evenly;
-	color: #616161;
-	padding: 25px 0;
-	border-bottom: 1px solid #e0e0e0;
-}
-
-.footer .footer-con ul li a{
-	color: #616161;
-}
-.footer .footer-con ul li span{
-	color: #e0e0e0;
-}
-.footer .footer-con .footer-list{
-	display: flex;
-	justify-content: space-between;
-	margin-top: 25px;
-}
-.footer .footer-con .footer-list ul{
-	width: 80px;
-}
-.footer .footer-con .footer-list ul li{
-	margin-bottom: 20px;
-	font-size: 12px;
-}
-.footer .footer-con .footer-list ul li:first-of-type{
-	margin-bottom: 30px;
-	font-size: 14px;
-}
-.footer .footer-con .footer-list ul li a{
-	color:  #616161;
-}
-	
-.footer .footer-con .footer-list .contact{
-	width: 245px;
-	height: 150px;
-	text-align: center;
-	border-left: 1px solid #e0e0e0;
-	padding-top: 20px;
-}
-
-.footer .footer-con .footer-list .contact p{
-	margin: 10px 0;
-	font-size: 12px;
-}
-.footer .footer-con .footer-list .contact p:first-of-type{
-	color: #ff6900;
-	font-size: 16px;
-}
-.footer .footer-con .footer-list .contact>a{
-	width: 120px;
-	height: 30px;
-	display: block;
-	border: 1px solid #ff6900;
-	color: #ff6900;
-	font-size: 12px;
-	line-height: 30px;
-	text-align: center;
-	margin-left: 65px;
-}
-.footer .footer-con .footer-list .contact p{
-	text-align: center;
-}
-.footer .footer-con .footer-list .contact p img{
-	width: 24px;
-	height: 24px;
-}
-.footer .footer-con ul li a:hover,
-.footer .footer-con .footer-list ul li a:hover{
-	color: #ff6900;
-}
-
 
 
 /* 重复 */
