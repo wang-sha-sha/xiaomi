@@ -272,10 +272,10 @@
 
 					<div>
 						<div>
-							<a href='#'></a>
+							<a href=''></a>
 						</div>
 						<div>
-							<a href='#'></a>
+							<a href=''></a>
 						</div>
 					</div>
 
@@ -384,28 +384,29 @@
 						url: "addGoods.php",
 						type: "post",
 						data: {
-							//订单号(随机生成数字)
+							//订单号(可改进成生成随机数字)
 							order_id:666,
 							//用户id(先固定成1)
 							user_id: 222,
 							//商品id
-							goods_id: 1,
+							goods_id: goodsNum,
 							//商品名字
-							// goods_title: "$(.goods_title).html()",
-							goods_title: "Redmi手机",
+							goods_title: $(".goods_title").html(),
+							// goods_title: "Redmi手机",
 							//商品颜色
-							// goods_color: "$(.goods_ul_color li).hasClass("selected")",
-							goods_color: "胧月金",
+							goods_color: $(".goods_ul_color .selected").html(),
+							// goods_color: "胧月金",
 							//商品版本
-							// goods_version:  "$(.goods_ul_version li).hasClass("selected")",
-							goods_version: "8GB+128GB",
+							goods_version: $(".goods_ul_version .selected").html(),
+							// goods_version: "8GB+128GB",
 							//商品价格
-							// goods_price: "",
-							goods_price: 1500,
+							goods_price: $(".goods_price").prop("firstChild").nodeValue,
+							// goods_price: 1500,
 							//商品数量(默认每次加一)
 							goods_count: 1
 						},
-						success: function() {
+						success: function(data) {
+							// console.log(data);
 							// 跳转页面到加入购车车页面
 							location.href="addToCart.html";
 						},
@@ -457,6 +458,8 @@
 			if (index === "goods_price") {
 				// 添加属性
 				$(".goods_price").parent().attr("class", "goods_line");
+				
+				// console.log($(".goods_price span").html());
 			}
 
 			if (index === "goods_address_1") {
@@ -479,7 +482,10 @@
 					let oLi = "<li class='add_input'>" + arr[i] + "</li>";
 					$('.' + index).next().append(oLi);
 				}
-			} else {
+			} else if(index==="goods_price"){				
+				$("." + index).html(json[index]+"<span>元<span>");
+			}
+				else {
 				$("." + index).html(json[index]);
 			}
 		}
@@ -589,6 +595,9 @@
 		$("#total>p:last>span:first").html("总计：");
 		$("#total>p:last>span:last").attr("class", "total_price");
 		$("#total>p:last>span:last").html($(".goods_price").html());
+		// 添加元字
+
+
 
 		// 添加到购物车和喜欢部分
 		$("#total").next().attr("class", "btn-box");

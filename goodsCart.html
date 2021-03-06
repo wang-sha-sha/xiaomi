@@ -13,11 +13,18 @@
 
 			.header-con,
 			.cart-con,
-			.cart-goods {
+			.cart-goods,
+			.settlement{
 				height: 100px;
 				margin: auto;
 				width: 1226px;
 			}
+			.settlement{
+				margin-top: 30px;
+				height: 60px;
+				/* line-height: 60px; */
+			}
+			
 
 			.header-con .header-logo {
 				width: 49px;
@@ -88,6 +95,10 @@
 
 			.header-con a:hover {
 				color: #ff6700;
+			}
+			/* 背景色 */
+			.cart-con, .cart-goods, .settlement{
+				background-color: #f9f9fa;
 			}
 
 			.cart-con {
@@ -189,6 +200,52 @@
 			.load-footer{
 				margin-top: 50px;
 			}
+			
+			.settlement{
+				padding-left: 30px;
+				box-sizing: border-box;
+			} 
+			.settlement span{
+				display: inline-block;
+			}
+			.settlement .set-text{
+				height: 20px;
+				line-height: 20px;
+				padding-right: 20px; 
+				margin-top: 20px;
+				border-right: 1px solid #ababab;				
+			}
+			.settlement .set-count{
+				/* background-color: pink; */
+				padding-left: 20px;
+				
+			} 
+			.settlement .set-count span{
+				color: #ff6700;
+			}
+			.settlement .set-total,
+			.settlement .set-btn{
+				float: right;
+				display: inline-block;
+				width: 200px;
+				height: 58px;
+				text-align: center;
+				line-height: 58px;
+				
+			}
+			.settlement .set-total{
+				color: #ff6700;	
+				
+			}
+			.settlement .set-total span{
+				font-size: 26px;
+			}
+			.settlement .set-btn{
+				color: white;
+				background-color: #ff6700;
+				font-size: 18px;
+			}
+					
 		</style>
 	</head>
 	<body>
@@ -221,27 +278,40 @@
 			<div class='cart-box-item'></div>
 			<div class='cart-check-item'></div>
 			<div class='cart-name'>Redmi 9A 4GB+64GB 砂石黑</div>
-			<div class='cart-price'><span>599</span>元</div>
+			<div class='cart-price'><span>500</span>元</div>
 			<div class='cart-number'>
 				<button class='reduce'>-</button>
 				<span class='goods-num'>1</span>
 				<button class='add'>+</button>
 			</div>
-			<div class='cart-total'><span>1000</span>元</div>
+			<div class='cart-total'><span>500</span>元</div>
 			<div class='cart-action-item'><a>x</a></div>
 		</div>
 		<div class='cart-goods'>
 			<div class='cart-box-item'></div>
 			<div class='cart-check-item'></div>
 			<div class='cart-name'>Redmi 10X 5G 8GB+128GB 胧月金</div>
-			<div class='cart-price'><span>1699</span>元</div>
+			<div class='cart-price'><span>600</span>元</div>
 			<div class='cart-number'>
 				<button class='reduce'>-</button>
 				<span class='goods-num'>1</span>
 				<button class='add'>+</button>
 			</div>
-			<div class='cart-total'><span>1699</span>元</div>
+			<div class='cart-total'><span>600</span>元</div>
 			<div class='cart-action-item'><a>x</a></div>
+		</div>
+		<!-- 结算 -->
+		<div class='settlement' >
+			    <span class='set-text'>继续购物</span>
+				<span class='set-count'>共
+					<span>0</span> 件商品，已选择
+					<span>0</span> 件
+				</span>
+				<span class='set-btn'>去结算</span>	
+				<span class='set-total'>合计：
+					<span>0</span> 元
+				</span>
+					
 		</div>
 		<div class='load-footer'></div>
 	</body>
@@ -291,7 +361,6 @@
 	});
 	// 按钮减
 	$(".cart-number").children(".reduce").click(function(){
-		console.log("aaa");
 		// 数量减
 		let numRed = $(this).next().html();
 		if(numRed<=1){
@@ -302,6 +371,8 @@
 		//更新小计
 		// 必须拿this去找节点关系
 		$(this).parent().next().find("span").html($(this).next().html()*$(this).parent().prev().find("span").html());
+		// 更新总计 
+		updateTotalPrice();
 	});
 	// 按钮加
 	$(".cart-number").children(".add").click(function(){
@@ -312,6 +383,8 @@
 		//更新小计
 		//单价*数量	
 		 $(this).parent().next().find("span").html($(this).prev().html()*$(this).parent().prev().find("span").html());
+		 // 更新总计 
+		 updateTotalPrice();
 		
 	});
 	// 添加鼠标指针样式
@@ -332,11 +405,65 @@
 			$(".cart-box-item").removeClass("selected");
 			$(".cart-box-item").html("");
 		}
+
+		// 更新总计 
+		updateTotalPrice();
+		
 	});
+	
+	
 	$(".cart-con").next().find(".cart-check-item").css({
 		"background": "url(img/goodsCart/0.jpg) no-repeat 65px 5px"
 	});
 	$(".cart-con").next().next().find(".cart-check-item").css({
 		"background": "url(img/goodsCart/1.jpg) no-repeat 65px 5px"
 	});
+	
+	// 给结算绑定事件
+	$(".settlement .set-btn").hover(function(){
+		$(this).css({
+			"cursor": "pointer"
+		});
+	});
+	
+	$(".cart-goods>.cart-box-item").click(function(){
+		// 如果所有子box都没有选中,则将全选的高亮样式取消
+		if($(".cart-goods>.selected").length==0){
+			
+			$(".cart-con .cart-box").removeClass("selected");
+			$(".cart-con .cart-box").html("");
+		}
+		// 如果所有子box都选中,则触发全选高亮样式
+		if($(".cart-goods>.selected").length==$(".cart-goods").length){
+			$(".cart-con .cart-box").addClass("selected");
+			$(".cart-con .cart-box").html("√");
+		}
+		updateTotalPrice();
+	});
+			
+	// 更新总计行
+	function updateTotalPrice(){
+		let oBox = $(".cart-goods .selected");
+		let totalPrice=0;
+		let totalSelectedCount = 0;
+		for(let i=0;i<oBox.length;i++){
+			totalPrice += Number($(oBox[i]).next().next().next().next().next().children("span").html());
+			// 已选商品件数
+			totalSelectedCount += Number($(oBox[i]).next().next().next().next().children(".goods-num").html());
+		}
+		// 小计count
+		$(".settlement .set-total>span").html(totalPrice);
+		// 选中的商品件数
+		$(".settlement .set-count span").eq(1).html(totalSelectedCount);
+		
+		
+		// 共 件商品
+		let totalCount=0;
+		// 所有数量之和  length属性，不是length方法
+		for(let j=0;j<$(".cart-goods").length;j++){
+			totalCount += Number($(".cart-goods .goods-num").eq(j).html());
+		}
+		// console.log(totalCount);
+		$(".settlement .set-count>span").eq(0).html(totalCount);
+	}
 </script>
