@@ -9,15 +9,6 @@
 	$goods_price = $_POST["goods_price"];
 	$goods_count = $_POST["goods_count"];
 	
-	echo "order_id:" .$order_id;
-	echo "user_id:".$user_id;
-	echo "goods_id:".$goods_id;
-	echo "goods_title:".$goods_title;
-	echo "goods_color:".$goods_color;
-	echo "goods_version:".$goods_version;
-	echo "goods_price:" .$goods_price;
-	echo "goods_count:".$goods_count;
-	
 	// 1. 创建连接对象
 	$conn = mysql_connect("127.0.0.1:3306","root","root");
 	if($conn){
